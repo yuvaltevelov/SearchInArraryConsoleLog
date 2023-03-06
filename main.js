@@ -10,9 +10,12 @@ var items = [
     { barcode: '9', itemName: 'Night' },
     { barcode: '10', itemName: 'Yuval' },
   ];
-  
+
   function find(item) {
-    console.log(item ? `found item: ${item.itemName}` : `${itemInputBox} -> not found`);
+    var resultElement = document.getElementById('result');
+    resultElement.innerHTML = item ? `found item: ${item.itemName}` : `Sorry not here`;
+    console.log(item ? `found item: ${item.itemName}` : `Sorry not here`);
+
   }
   
   function searchForItem(array, itemToFind, cb) {
@@ -29,5 +32,9 @@ var items = [
     }
   }
   
-  var itemInputBox = prompt('Type the item barcode');
-  searchForItem(items, itemInputBox, find);
+  var submitBtn = document.getElementById('submitBtn');
+  submitBtn.addEventListener('click', function() {
+  var inputBarcode = document.getElementById('inputBarcode').value;
+  searchForItem(items, inputBarcode, find);
+});
+  
