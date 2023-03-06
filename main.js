@@ -36,5 +36,5 @@ var items = [
   submitBtn.addEventListener('click', function() {
   var inputBarcode = document.getElementById('inputBarcode').value;
   searchForItem(items, inputBarcode, find);
-});;
+});
   
